@@ -142,8 +142,8 @@ main:focus {
 
 .intro {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(16rem, 0.85fr);
-  gap: clamp(1.5rem, 4vw, 4rem);
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.9fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
   align-items: end;
   padding-top: clamp(2.75rem, 7vw, 5.75rem);
   padding-bottom: clamp(2.25rem, 5vw, 4rem);
@@ -204,9 +204,10 @@ h3 .slot-tag {
 .lede {
   margin-bottom: 0;
   font-family: var(--serif);
-  font-size: clamp(1.45rem, 2.5vw, 2rem);
+  font-size: clamp(1.35rem, 2.2vw, 1.8rem);
   font-weight: 500;
-  line-height: 1.45;
+  line-height: 1.5;
+  text-wrap: balance;
 }
 
 .blank {
@@ -243,7 +244,8 @@ h2 {
   max-width: 38rem;
 }
 
-.about .blank,
+.intro .blank,
+.about-grid .blank,
 .contact .blank {
   display: block;
   padding: 0.95rem 1rem;
