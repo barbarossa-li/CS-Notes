@@ -259,7 +259,8 @@ def choose(scene: Scene) -> str | None:
         print("请输入选项前的数字。")
 
 
-def play() -> None:
+def play() -> bool:
+    """玩完一局。玩家中途输入 q 时返回 False。"""
     scene_id = "start"
     while True:
         scene = SCENES[scene_id]
@@ -267,7 +268,7 @@ def play() -> None:
         print(scene.text)
         if scene.ending:
             print()
-            return
+            return True
         print()
         for index, (label, _) in enumerate(scene.choices, 1):
             print(f"  {index}. {label}")
@@ -275,16 +276,17 @@ def play() -> None:
         nxt = choose(scene)
         if nxt is None:
             print()
-            print("你把钥匙放回抽屉。夜班还在继续。")
+            print("你把钥匙放回抽屉。天亮了。")
             print()
-            return
+            return False
         scene_id = nxt
 
 
 def main() -> None:
     print(BANNER)
     while True:
-        play()
+        if not play():
+            return
         again = input("再值一班？(y/n) ").strip().lower()
         if again != "y":
             print("天亮了。")
